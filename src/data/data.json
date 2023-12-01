@@ -1,0 +1,106 @@
+[
+    {
+      "name": "Olivia",
+      "email": "oli@gmail.com",
+      "phone": 38458668686,
+      "age": 25,
+      "gender": "f",
+      "city": "Milan"
+    },
+    {
+      "name": "Ivan",
+      "email": "ivan@gmail.com",
+      "phone": 456789433,
+      "age": 205,
+      "gender": "m",
+      "city": "Tallin"
+    },
+    {
+      "name": "Gloriya",
+      "email": "gloriya@gmail.com",
+      "phone": 7649389238,
+      "age": 23,
+      "gender": "f",
+      "city": "Oslo"
+    },
+    {
+      "name": "Ethan",
+      "email": "ethan@gmail.com",
+      "phone": 9876543210,
+      "age": 28,
+      "gender": "m",
+      "city": "Berlin"
+    },
+    {
+      "name": "Sophia",
+      "email": "sophia@gmail.com",
+      "phone": 1234567890,
+      "age": 22,
+      "gender": "f",
+      "city": "Paris"
+    },
+    {
+      "name": "Liam",
+      "email": "liam@gmail.com",
+      "phone": 8765432109,
+      "age": 30,
+      "gender": "m",
+      "city": "Barcelona"
+    },
+    {
+      "name": "Isabella",
+      "email": "isabella@gmail.com",
+      "phone": 2345678901,
+      "age": 26,
+      "gender": "f",
+      "city": "Vienna"
+    },
+    {
+      "name": "Mason",
+      "email": "mason@gmail.com",
+      "phone": 1098765432,
+      "age": 24,
+      "gender": "m",
+      "city": "Amsterdam"
+    },
+    {
+      "name": "Ava",
+      "email": "ava@gmail.com",
+      "phone": 7654321098,
+      "age": 29,
+      "gender": "f",
+      "city": "Zurich"
+    },
+    {
+      "name": "Noah",
+      "email": "noah@gmail.com",
+      "phone": 2109876543,
+      "age": 27,
+      "gender": "m",
+      "city": "Prague"
+    },
+    {
+      "name": "Emma",
+      "email": "emma@gmail.com",
+      "phone": 876543210,
+      "age": 25,
+      "gender": "f",
+      "city": "Athens"
+    },
+    {
+      "name": "Lucas",
+      "email": "lucas@gmail.com",
+      "phone": 987654321,
+      "age": 28,
+      "gender": "m",
+      "city": "Dublin"
+    },
+    {
+      "name": "Aria",
+      "email": "aria@gmail.com",
+      "phone": 123456789,
+      "age": 23,
+      "gender": "f",
+      "city": "Stockholm"
+    }
+  ]
