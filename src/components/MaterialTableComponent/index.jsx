@@ -13,12 +13,14 @@ function MaterialTableComponent({ data }) {
     setFilter(!filter);
   };
   useEffect(() => {
+    if (!data) return;
     setFilteredData(
       status === "all" ? data : data.filter((dt) => dt.status === status)
     );
   }, [status, data]);
 
   const columns = [
+    { title: "Ред.", field: "filter", filtering: false },
     { title: "Дата", field: "date" },
     { title: "Час", field: "time" },
     { title: "Рейс", field: "id" },
@@ -26,13 +28,13 @@ function MaterialTableComponent({ data }) {
     { title: "Пункт відправки", field: "address" },
     { title: "Пункт призначення", field: "address_2" },
     { title: "Назва клієнта", field: "company" },
-    { title: "АТП", field: "driver" },
+    { title: "АТП", field: "atp" },
     { title: "Авто", field: "vehicle" },
     { title: "Водій", field: "driver" },
     { title: "Вантаж", field: "cargo", filtering: false },
     { title: "Поточне завдання", field: "action" },
     { title: "Орієнтир прибуття", field: "arrival" },
-    { title: "Стан", field: "status" },
+    { title: "Стан", field: "status", filtering: false },
     { title: "Сумма(з ПДВ)", field: "price" },
   ];
 
