@@ -9,20 +9,9 @@ function App() {
     setTableData(data);
   }, []);
 
-  const handleRowDelete = (oldData) =>
-    new Promise((resolve) => {
-      const newData = [...tableData];
-      const index = newData.findIndex(
-        (row) => row.tableData.id === oldData.tableData.id,
-      );
-      newData.splice(index, 1);
-      setTableData(newData);
-      resolve();
-    });
-
   return (
     <div className="App">
-      <MaterialTableComponent data={tableData} onRowDelete={handleRowDelete} />
+      <MaterialTableComponent data={tableData} />
     </div>
   );
 }
