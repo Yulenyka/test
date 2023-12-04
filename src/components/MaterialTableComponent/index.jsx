@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import MaterialTable from "material-table";
 import { ThemeProvider, createTheme } from "@mui/material";
 import { Checkbox, Select, MenuItem } from "@material-ui/core";
+import { getRowBackgroundColor } from "./tableUtils";
+import { localizationStrings } from "./localization";
 
 const defaultMaterialTheme = createTheme();
 
@@ -20,7 +22,7 @@ function MaterialTableComponent({ data }) {
   }, [status, data]);
 
   const columns = [
-    { title: "Ред.", field: "filter", filtering: false },
+    //{ title: "Ред.", field: "filter", filtering: false },
     { title: "Дата", field: "date" },
     { title: "Час", field: "time" },
     { title: "Рейс", field: "id" },
@@ -45,10 +47,13 @@ function MaterialTableComponent({ data }) {
           title="Управління рейсами"
           columns={columns}
           data={filteredData}
+          localization={localizationStrings}
           options={{
             filtering: filter,
             headerStyle: { backgroundColor: "#0183b4", color: "#FFF" },
-            rowStyle: { backgroundColor: "#EEE" },
+            rowStyle: (rowData) => ({
+              backgroundColor: getRowBackgroundColor(rowData),
+            }),
             selection: true,
             pageSize: 25,
             pageSizeOptions: [25, 50, 100],
@@ -70,6 +75,7 @@ function MaterialTableComponent({ data }) {
               ),
               tooltip: "Hide/Show Filter option",
               isFreeAction: true,
+              onClick: () => {},
             },
             {
               icon: () => (
@@ -85,30 +91,14 @@ function MaterialTableComponent({ data }) {
                   </MenuItem>
                   <MenuItem value={"в дорозі"}>в дорозі</MenuItem>
                   <MenuItem value={"завантаження"}>завантаження</MenuItem>
+                  <MenuItem value={"закритий"}>закритий</MenuItem>
                 </Select>
               ),
               tooltip: "Стан",
               isFreeAction: true,
+              onClick: () => {},
             },
           ]}
-          localization={{
-            body: {
-              emptyDataSourceMessage: "Немає записів для відображення",
-              filterRow: {
-                filterTooltip: "Фільтрація",
-              },
-            },
-            pagination: {
-              labelDisplayedRows: "{from}-{to} з {count}",
-              labelRowsSelect: "",
-              labelRowsPerPage: "Число рядків:",
-            },
-            toolbar: {
-              nRowsSelected: "Вибрано {0} рядків",
-              searchTooltip: "Пошук",
-              searchPlaceholder: "Пошук",
-            },
-          }}
         />
       </ThemeProvider>
     </div>
