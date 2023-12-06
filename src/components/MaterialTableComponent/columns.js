@@ -1,0 +1,17 @@
+export const columns = [
+  { title: 'Дата', field: 'date' },
+  { title: 'Час', field: 'time' },
+  { title: 'Рейс', field: 'id' },
+  { title: 'Тип рейсу', field: 'type', lookup: { 0: 0, 1: 1 } },
+  { title: 'Пункт відправки', field: 'address' },
+  { title: 'Пункт призначення', field: 'address_2' },
+  { title: 'Назва клієнта', field: 'company' },
+  { title: 'АТП', field: 'atp' },
+  { title: 'Авто', field: 'vehicle' },
+  { title: 'Водій', field: 'driver' },
+  { title: 'Вантаж', field: 'cargo', filtering: false },
+  { title: 'Поточне завдання', field: 'action' },
+  { title: 'Орієнтир прибуття', field: 'arrival' },
+  { title: 'Стан', field: 'status', filtering: false },
+  { title: 'Сумма(з ПДВ)', field: 'price' },
+];

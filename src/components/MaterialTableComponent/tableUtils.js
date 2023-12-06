@@ -1,12 +1,12 @@
 export const getRowBackgroundColor = (rowData) => {
-  switch (rowData.status) {
-    case "в дорозі":
-      return "#b4f9ad";
-    case "завантаження":
-      return "#b3dcfd";
-    case "закритий":
-      return "#d0d2d1";
+  switch (rowData) {
+    case 'в дорозі':
+      return '#b4f9ad';
+    case 'завантаження':
+      return '#b3dcfd';
+    case 'закритий':
+      return '#d0d2d1';
     default:
-      return "#f9ccad";
+      return '#f9ccad';
   }
 };
