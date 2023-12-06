@@ -1,7 +1,9 @@
 export const localizationStrings = {
-  emptyDataSourceMessage: "Немає записів для відображення",
-  filterRow: {
-    filterTooltip: "Фільтрація",
+  body: {
+    emptyDataSourceMessage: "Немає записів для відображення",
+    filterRow: {
+      filterTooltip: "Фільтрація",
+    },
   },
   pagination: {
     labelDisplayedRows: "{from}-{to} з {count}",
