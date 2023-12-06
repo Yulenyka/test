@@ -1,5 +1,5 @@
 export const getRowBackgroundColor = (rowData) => {
-  switch (rowData.status) {
+  switch (rowData) {
     case "в дорозі":
       return "#b4f9ad";
     case "завантаження":
