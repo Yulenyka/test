@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useSearchParams, useLocation, useNavigate } from "react-router-dom";
 import MaterialTable from "material-table";
 import { ThemeProvider, createTheme } from "@mui/material";
 import { Checkbox, Select, MenuItem } from "@material-ui/core";
 import { getRowBackgroundColor } from "./tableUtils";
 import { localizationStrings } from "./localization";
+import { Link } from "react-router-dom";
 
 const defaultMaterialTheme = createTheme();
 
@@ -11,9 +13,22 @@ function MaterialTableComponent({ data }) {
   const [filter, setFilter] = useState(false);
   const [filteredData, setFilteredData] = useState(data);
   const [status, setStatus] = useState("all");
+
   const handleChange = () => {
     setFilter(!filter);
   };
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const page = parseInt(searchParams.get("page")) || 1;
+
+  const handleChangePage = (newPage) => {
+    searchParams.set("page", newPage);
+    navigate(`${location.pathname}?${searchParams.toString()}`);
+  };
+
   useEffect(() => {
     if (!data) return;
     setFilteredData(
@@ -43,6 +58,23 @@ function MaterialTableComponent({ data }) {
   return (
     <div style={{ zoom: "70%" }}>
       <ThemeProvider theme={defaultMaterialTheme}>
+        <button onClick={handleChangePage}>Update Query Parameter</button>
+        <Link
+          to={{
+            pathname: "/page",
+            search: "?page=$page1",
+          }}
+        >
+          Сторінка 1
+        </Link>
+        <Link
+          to={{
+            pathname: "/page",
+            search: "?page=$page2",
+          }}
+        >
+          Сторінка 2
+        </Link>
         <MaterialTable
           title="Управління рейсами"
           columns={columns}
@@ -57,7 +89,9 @@ function MaterialTableComponent({ data }) {
             selection: true,
             pageSize: 25,
             pageSizeOptions: [25, 50, 100],
+            paginationType: "stepped",
           }}
+          onChangePage={(page) => searchParams.set("page", page)}
           actions={[
             {
               icon: () => (
