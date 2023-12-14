@@ -125,10 +125,10 @@ function MaterialTableComponent({ data }) {
                     indicatorColor="primary"
                     textColor="primary"
                   >
-                    <Tab label="Стан" />
-                    <Tab label="в дорозі" />
-                    <Tab label="завантаження" />
-                    <Tab label="закритий" />
+                    <Tab label="Стан" component="div" />
+                    <Tab label="в дорозі" component="div" />
+                    <Tab label="завантаження" component="div" />
+                    <Tab label="закритий" component="div" />
                   </Tabs>
                 ),
                 tooltip: "Оберіть стан",
