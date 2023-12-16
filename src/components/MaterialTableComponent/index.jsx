@@ -76,9 +76,47 @@ function MaterialTableComponent({ data }) {
       search: params.toString(),
     });
   };
+  const compareValues = (value, target) => {
+    // Додайте додаткові перевірки на типи за необхідністю
+    return String(value).toLowerCase().includes(String(target).toLowerCase());
+  };
+
+  const handleRowClick = (event, rowData) => {
+    console.log("Натискані дані рядка:", rowData);
+
+    // Отримати значення, на якому ви натискаєте
+    const clickedValue = event.target.textContent;
+
+    // Визначити колонку, значення якої відповідає натисканому значенню
+    let filterColumn = null;
+
+    for (const column in rowData) {
+      if (
+        Object.prototype.hasOwnProperty.call(rowData, column) &&
+        compareValues(rowData[column], clickedValue)
+      ) {
+        filterColumn = column;
+        break; // Зупинитися, якщо знайдено відповідну колонку
+      }
+    }
+
+    if (filterColumn) {
+      console.log(`Стовпець для фільтрації: ${filterColumn}`);
+      console.log(`Значення для фільтрації: ${clickedValue}`);
+
+      // Фільтрувати дані за значенням у відповідному стовпці
+      setFilteredData(
+        data.filter((dt) => compareValues(dt[filterColumn], clickedValue))
+      );
+    } else {
+      console.log("Стовпець для фільтрації не знайдено");
+    }
+
+    // Залиште іншу логіку або модифікуйте її відповідно до своїх вимог
+  };
   return (
     filteredData.length > 0 && (
-      <div style={{ zoom: "70%" }}>
+      <div style={{}}>
         <ThemeProvider theme={defaultMaterialTheme}>
           <MaterialTable
             title="Управління рейсами"
@@ -136,6 +174,7 @@ function MaterialTableComponent({ data }) {
                 onClick: () => {},
               },
             ]}
+            onRowClick={handleRowClick}
           />
         </ThemeProvider>
       </div>
